@@ -17,14 +17,14 @@ namespace ShapeSorter.Tests
         [TestMethod]
         public void Ctor_ShouldbeAbleToConstruct_WithHeighthAndWidthDecimalPlaces()
         {
-            var rectangle = new Rectangle(10.10m, 10.123m);
+            var rectangle = new Rectangle(10.10f, 10.123f);
             Assert.IsNotNull(rectangle);
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
         public void Ctor_ShouldNotAcceptNegativeValues()
         {
-            new Rectangle(-10.10m, -10.123m);
+            new Rectangle(-10.10f, -10.123f);
         }
 
         [TestMethod]
@@ -38,21 +38,21 @@ namespace ShapeSorter.Tests
         public void ToString_WhenHeigthIsGreaterThanWidth_ShouldGetTall()
         {
             var rectangle = new Rectangle(11, 10);
-            Assert.AreEqual("Tall", rectangle.ToString());
+            Assert.AreEqual(ShapeName.Tall, rectangle.ShapeName);
         }
 
         [TestMethod]
         public void ToString_WhenHeigthIsLesserThanWidth_ShouldGetFlat()
         {
             var rectangle = new Rectangle(9, 10);
-            Assert.AreEqual("Flat", rectangle.ToString());
+            Assert.AreEqual(ShapeName.Flat, rectangle.ShapeName);
         }
 
         [TestMethod]
         public void ToString_WhenHeigthIsEqualToWidth_ShouldGetSquare()
         {
             var rectangle = new Rectangle(10, 10);
-            Assert.AreEqual("Square", rectangle.ToString());
+            Assert.AreEqual(ShapeName.Square, rectangle.ShapeName);
         }
     }
 }

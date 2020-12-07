@@ -2,6 +2,8 @@
 {
     public abstract class Shape
     {
-        public abstract decimal Area { get; }
+        public abstract float Area { get; }
+
+        public abstract ShapeName ShapeName { get; }
     }
 }

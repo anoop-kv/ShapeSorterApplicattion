@@ -18,10 +18,10 @@ namespace ShapeSorter
             {
                 Console.Clear();
                 Console.Write($"Enter the heigth of rectangle {i + 1} : ");
-                var height = ReadDecimal();
+                var height = ReadFloat();
 
                 Console.Write($"Enter the width of rectangle {i + 1} : ");
-                var width = ReadDecimal();
+                var width = ReadFloat();
 
                 rectangles.Add(new Rectangle(height, width));
             }
@@ -34,12 +34,12 @@ namespace ShapeSorter
             sortedRectangles.ToList().ForEach(r => Console.WriteLine(r));
         }
 
-        private static decimal ReadDecimal()
+        private static float ReadFloat()
         {
-            decimal number;
-            while (!decimal.TryParse(Console.ReadLine(), out number))
+            float number;
+            while (!float.TryParse(Console.ReadLine(), out number))
             {
-                Console.Write($"Invalid input ! Please enter valid value : ");
+                Console.Write($"Invalid input! Please enter valid value : ");
             }
             return number;
         }
@@ -49,7 +49,7 @@ namespace ShapeSorter
             int number;
             while (!Int32.TryParse(Console.ReadLine(), out number))
             {
-                Console.Write($"Invalid input ! Please enter valid value : ");
+                Console.Write($"Invalid input! Please enter valid value : ");
             }
             return number;
         }

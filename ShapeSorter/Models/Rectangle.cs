@@ -4,10 +4,10 @@ namespace ShapeSorter.Models
 {
     public class Rectangle : Shape
     {
-        private decimal height;
-        private decimal width;
+        private float height;
+        private float width;
 
-        public Rectangle(decimal height, decimal width)
+        public Rectangle(float height, float width)
         {
             if (height < 0) throw new ArgumentException($"{nameof(height)} should be non negative");
             if (height < 0) throw new ArgumentException($"{nameof(width)} should be non negative");
@@ -16,21 +16,24 @@ namespace ShapeSorter.Models
             this.width = width;
         }
 
-        public override decimal Area => height * width;
+        public override float Area => height * width;
 
-        public override string ToString()
+        public override ShapeName ShapeName 
         {
-            if (height > width)
+            get 
             {
-                return "Tall";
-            }
+                if (height > width)
+                {
+                    return ShapeName.Tall;
+                }
 
-            if (height < width)
-            {
-                return "Flat";
-            }
+                if (height < width)
+                {
+                    return ShapeName.Flat;
+                }
 
-            return "Square";
+                return ShapeName.Square;
+            } 
         }
     }
 }
